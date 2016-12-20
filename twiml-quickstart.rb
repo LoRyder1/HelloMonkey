@@ -16,5 +16,11 @@ get '/hello-monkey' do
   Twilio::TwiML::Response.new do |r|
     r.Say "How Many Monkeys Jumping on the Tree #{name}"
     r.Play 'http://demo.twilio.com/hellomonkey/monkey.mp3'
+    r.Gather :numDigits => '1', :action => '/hello-monkey/handle-gather', :method => 'get' do
+      g.Say 'To speak to a real monkey, press 1.'
+      g.Say 'Press any other key to start over.'
+    end
   end.text
 end
+
+

@@ -15,5 +15,6 @@ get '/hello-monkey' do
 
   Twilio::TwiML::Response.new do |r|
     r.Say "How Many Monkeys Jumping on the Tree #{name}"
+    r.Play 'http://demo.twilio.com/hellomonkey/monkey.mp3'
   end.text
 end

@@ -21,7 +21,6 @@ get '/hello-monkey' do
   end.text
 end
 
-
 get '/hello-monkey/handle-gather' do
   redirect '/hello-monkey' unless ['1', '2'].include?(params['Digits'])
   if params['Digits'] == '1'
@@ -45,4 +44,3 @@ get '/hello-monkey/handle-record' do
     r.Say 'Goodbye.'
   end.text
 end
-

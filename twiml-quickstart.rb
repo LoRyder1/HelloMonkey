@@ -23,4 +23,10 @@ get '/hello-monkey' do
   end.text
 end
 
-
+get '/hello-monkey/handle-gather' do
+  redirect '/hello-monkey' unless params['Digits'] == '1'
+  Twilio::TwiML:Response.new do |r|
+    r.Dial '+13105551212'
+    r.Say 'The call failed or the remote party hung up. Goodbye.'
+  end.text
+end

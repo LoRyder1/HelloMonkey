@@ -11,7 +11,7 @@ get '/hello-monkey' do
   }
   name = people[params['From']] || 'Monkey'
   Twilio::TwiML::Response.new do |r|
-    r.Say "Hello #{name}"
+    r.Say "How many monkey jumping on the bed #{name}"
     r.Play 'http://demo.twilio.com/hellomonkey/monkey.mp3'
     r.Gather :numDigits => '1', :action => '/hello-monkey/handle-gather', :method => 'get' do |g|
       g.Say 'To speak to a real monkey, press 1.'
@@ -25,7 +25,7 @@ get '/hello-monkey/handle-gather' do
   redirect '/hello-monkey' unless ['1', '2'].include?(params['Digits'])
   if params['Digits'] == '1'
     response = Twilio::TwiML::Response.new do |r|
-      r.Dial '+13105551212'
+      r.Dial '+12095233015'
       r.Say 'The call failed or the remote party hung up. Goodbye.'
     end
   elsif params['Digits'] == '2'

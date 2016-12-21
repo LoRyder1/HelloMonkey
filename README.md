@@ -33,6 +33,10 @@ When a new phone call is initiated using your twilio phone number, Twilio makes 
   ngrok http 4567
   ```
 
+  6. Set up request url for your Twilio voice phone number. 
+
+  7. Call your twilio phone number. 
+
 ## Built with
 
 * Ruby - is a dynamic, reflective, object-oriented, general-purpose programming language.
